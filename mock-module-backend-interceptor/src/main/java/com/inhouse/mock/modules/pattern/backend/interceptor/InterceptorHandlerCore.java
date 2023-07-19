@@ -1,7 +1,8 @@
 package com.inhouse.mock.modules.pattern.backend.interceptor;
 
+import com.inhouse.mock.modules.pattern.backend.interceptor.valueobject.Request;
 import com.inhouse.mock.modules.pattern.normalizer.NormalizerCoreHandler;
-import com.inhouse.mock.modules.pattern.shared.domain.valueobject.EventData;
+import com.inhouse.mock.modules.pattern.normalizer.valueobject.DataNormalizer;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -9,21 +10,28 @@ public class InterceptorHandlerCore {
 
   // Inject a ConfigurationClassYaml to handle over mYInterceptorByReflection method
 
-  public void mYInterceptor(EventData interceptorData) {
+  public void mYInterceptor(Request request /* Framework Request/Response */) {
     // handle Yaml Configuration
     // based-on on decision table concept
     var normalizer = new NormalizerCoreHandler(); // must be an interface, never create an object using new
     //if (interceptorData.getFields())
     //if (interceptorData.getHeader())
     //if (interceptorData.getPayload())
-    normalizer.execute(interceptorData);
+
+    var dataNormalizer = DataNormalizer
+            .builder()
+            .header(request.getHeader())
+            .payload(request.getPayload())
+            .build();
+
+    normalizer.execute(dataNormalizer); // PoolThread Async
   }
 
-
-  public void mYInterceptorByReflection(String yamlConfig) {
-    //if (yamlConfig... )
-    final EventData eventData = null; // who's EventData Implementation
-  }
-
+  /**
+   * Spring Core send
+   *
+   *
+   *
+   */
 
 }

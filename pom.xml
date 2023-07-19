@@ -119,10 +119,14 @@
     </plugins>
   </build>
   <modules>
+    <!-- Tudo oq eh comum -->
     <module>shared-domain</module>
+    <!-- Normalizer como lib -->
     <module>mock-module-normalizer</module>
+    <!-- Interceptor como lib -->
     <module>mock-module-microservice</module>
     <module>mock-module-eventhub-broker</module>
+    <!-- Interceptor -->
     <module>mock-module-backend-interceptor</module>
   </modules>
 </project>

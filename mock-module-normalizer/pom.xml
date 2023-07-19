@@ -22,6 +22,7 @@
       <artifactId>shared-domain</artifactId>
     </dependency>
     <!-- Only Test purpose -->
+    <!-- Conditional Properties -->
     <dependency>
       <groupId>com.inhouse.mock.modules.pattern.eventhub.broker</groupId>
       <artifactId>mock-module-eventhub-broker</artifactId>

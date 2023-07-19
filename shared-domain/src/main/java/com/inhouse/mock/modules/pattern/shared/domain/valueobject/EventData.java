@@ -5,14 +5,12 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
-import java.util.List;
 
 
 @Getter
 @Setter
 @ToString
-public abstract class EventData /*EventData is a good definition name??? */ implements Serializable {
-  String fields;
-  String payload;
-  List<String> header;
+public class EventData implements Serializable {
+  String header;
+  String payload; // only json format
 }

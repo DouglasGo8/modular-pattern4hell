@@ -1,6 +1,7 @@
 package com.inhouse.mock.modules.pattern.normalizer;
 
 import com.inhouse.mock.modules.pattern.eventhub.broker.AzureEventHubPublisher;
+import com.inhouse.mock.modules.pattern.normalizer.valueobject.DataNormalizer;
 import com.inhouse.mock.modules.pattern.shared.domain.valueobject.CloudEvent;
 import com.inhouse.mock.modules.pattern.shared.domain.valueobject.EventData;
 
@@ -17,15 +18,21 @@ public class NormalizerCoreHandler {
   /*
     EventData Or InterceptorData???
    */
-  public void execute(EventData interceptorData) {
-    var event = this.applyMapStructOverEventData(interceptorData);
+  public void execute(DataNormalizer dataNormalizer) {
+    var event = this.applyMapStructOverEventData(dataNormalizer);
     // Never used new to create an Object;
     var azureEventHubBroker = new AzureEventHubPublisher();
-    azureEventHubBroker.publish(event);
+    azureEventHubBroker.publish(event); //
   }
 
 
-  CloudEvent<EventData> applyMapStructOverEventData(EventData interceptorData) {
+  CloudEvent applyMapStructOverEventData(DataNormalizer dataNormalizer) {
+
+    var eventData = new EventData();
+    //
+    eventData.setHeader(dataNormalizer.getHeader());
+    eventData.setPayload(dataNormalizer.getPayloadAsJson()); //json format
+    //
     var type = "CloudEventType";
     var time = ZonedDateTime.now(ZoneId.of("UTC"));
     var subject = "CloudEventSubject";
@@ -40,7 +47,7 @@ public class NormalizerCoreHandler {
             .specVersion(specVersion)
             .uriReference(uriReference)
             .dataContentType(dataContentType)
-            .specializedEvent(interceptorData)
+            .data(eventData)
             .build();
 
   }

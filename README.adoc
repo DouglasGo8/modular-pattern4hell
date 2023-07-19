@@ -1,0 +1,31 @@
+= Modular & Generic Patterns for Events Producer/Consumer
+
+== Links
+
+- https://mvnrepository.com/artifact/org.apache.maven.plugins[Maven Plugins]
+
+.Project Main Structure
+----
+|+ modular-pattern4hell
+|+|+ shared-domain
+|+|+ pom.xml
+|+|+ mock-module-normalizer
+|+|+ pom.xml
+|+|+ mock-module-backend-interceptor
+|+|+ pom.xml
+|+|+ mock-module-eventhub-broker
+|+|+ pom.xml
+********************************************
+??precisa realmente do module interceptor??
+********************************************
+|+|+ mock-module-integration-interceptor
+|+|+ pom.xml
+|+|+ mock-module-microservice
+|+|+ pom.xml
+----
+
+.Install all jar cross dependencies
+[source,bash]
+----
+mvn clean compile install
+----

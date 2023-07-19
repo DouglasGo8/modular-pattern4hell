@@ -168,3 +168,78 @@ public class GreetingResource extends RouteBuilder {
 
 .Camel RoutePolicy by Annotation logging
 image::thumbs/CamelRoutePolicyLifeCycle.png[]
+
+
+[source, java]
+----
+
+
+public class CustomArsPolicy implements RoutePolicy {
+  @Override
+  public void onInit(Route route) {
+
+
+  }
+
+  @Override
+  public void onRemove(Route route) {
+
+  }
+
+  @Override
+  public void onStart(Route route) {
+
+  }
+
+  @Override
+  public void onStop(Route route) {
+
+  }
+
+  @Override
+  public void onSuspend(Route route) {
+
+  }
+
+  @Override
+  public void onResume(Route route) {
+
+  }
+
+  @Override
+  public void onExchangeBegin(Route route, Exchange exchange) {
+    System.out.println("OnExchange Begin");
+  }
+
+  @Override
+  public void onExchangeDone(Route route, Exchange exchange) {
+
+  }
+}
+
+
+@Component
+//@EnableArsInterceptor
+public class GreetingResource extends RouteBuilder {
+  @Override
+  public void configure() throws Exception {
+
+    restConfiguration().component("undertow")
+            .host("localhost").port(12808)
+            .bindingMode(RestBindingMode.auto);
+
+
+    rest("/api/")
+      .get("/{id}")
+      .to("direct:sayHi");
+
+
+    from("direct:sayHi").routeId("SayHiRoute")
+            .routePolicy(CustomArsPolicy::new)
+      .log("ok");
+
+
+  }
+}
+
+----

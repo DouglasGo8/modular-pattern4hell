@@ -13,7 +13,6 @@ public class InterceptorHandlerCore {
     // handle Yaml Configuration
     // based-on on decision table concept
     var normalizer = new NormalizerCoreHandler(); // must be an interface, never create object using new
-
     //if (interceptorData.getFields())
     //if (interceptorData.getHeader())
     //if (interceptorData.getPayload())

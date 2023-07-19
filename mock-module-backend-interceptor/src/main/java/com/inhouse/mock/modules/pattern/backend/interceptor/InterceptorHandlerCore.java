@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 public class InterceptorHandlerCore {
 
+  // Inject a ConfigurationClassYaml to handle over mYInterceptorByReflection method
+
   public void mYInterceptor(EventData interceptorData) {
     // handle Yaml Configuration
     // based-on on decision table concept

@@ -14,6 +14,10 @@ public class DataNormalizer {
 
 
   public String getPayloadAsJson() {
-    return this.payload
+    return """
+            {
+              "json": "fields"
+            }
+            """;
   }
 }

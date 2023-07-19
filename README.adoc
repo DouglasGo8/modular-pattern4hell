@@ -1,5 +1,9 @@
 = Modular & Generic Patterns for Events Producer/Consumer
 
+////
+rodolphofr
+////
+
 == Links
 
 - https://mvnrepository.com/artifact/org.apache.maven.plugins[Maven Plugins]
@@ -63,4 +67,16 @@ image::thumbs/UnitTestsConsoleEventData.png[]
     }
 }
 
+----
+
+.Spring ThreadPoolTaskExecutor sample
+[source, java]
+----
+class Foo {
+  @Autowired ThreadPoolTaskExecutor threadPoolExecutor;
+  //
+  void mYInterceptor(Request request) {
+      this.threadPoolExecutor.submit(()-> normalizer.execute(Param));
+  }
+}
 ----

@@ -27,8 +27,9 @@ public class AppTest {
     //
     var interceptor = new InterceptorHandlerCore();
     //
+    interceptor.mYInterceptor(request);
     //interceptor.mYInterceptor(forsakenCart);
   }
 
-  
+
 }

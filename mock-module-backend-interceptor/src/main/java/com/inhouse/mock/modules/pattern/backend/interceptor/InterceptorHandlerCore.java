@@ -5,8 +5,11 @@ import com.inhouse.mock.modules.pattern.normalizer.NormalizerCoreHandler;
 import com.inhouse.mock.modules.pattern.normalizer.valueobject.DataNormalizer;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.Executors;
+
 @Slf4j
 public class InterceptorHandlerCore {
+
 
   // Inject a ConfigurationClassYaml to handle over mYInterceptorByReflection method
 
@@ -24,13 +27,18 @@ public class InterceptorHandlerCore {
             .payload(request.getPayload())
             .build();
 
-    normalizer.execute(dataNormalizer); // PoolThread Async
+    // PoolThread Async
+    Executors.newFixedThreadPool(5).execute(() -> normalizer.execute(dataNormalizer));
+
   }
 
   /**
    * Spring Core send
    *
    *
+   * void mYInterceptor(Request request) {
+   *   this.threadPoolExecutor.submit(()-> normalizer.execute(...));
+   * }
    *
    */
 

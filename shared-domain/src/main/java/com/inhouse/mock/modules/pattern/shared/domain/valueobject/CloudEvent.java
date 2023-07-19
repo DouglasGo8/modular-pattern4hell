@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @Getter
-@Builder
+@Builder // Fix with inner builder
 public class CloudEvent<E extends EventData> extends BaseId<UUID> {
 
   final String type;

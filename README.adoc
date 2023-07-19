@@ -4,6 +4,17 @@
 
 - https://mvnrepository.com/artifact/org.apache.maven.plugins[Maven Plugins]
 
+
+[source,html]
+----
+Communication Mock Order
+1. Mock Module Microservice (Mock ForsakenCart.class)
+2. Mock Module Interceptor receives an EventData based on ForsakenCart.class specialized with mYInterceptor(EventData interceptorData)
+3. What's EventData???
+4.
+----
+
+
 .Project Main Structure
 ----
 |+ modular-pattern4hell

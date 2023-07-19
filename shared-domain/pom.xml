@@ -12,7 +12,7 @@
 
   <groupId>com.inhouse.mock.modules.pattern.shared.domain</groupId>
   <artifactId>shared-domain</artifactId>
-  <version>0.0.1</version>
+  <version>0.1.0</version>
 
   <name>Mock Modular Multi-module :: for Dummies &amp; Kids :: Shared Domain</name>
 

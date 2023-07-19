@@ -27,5 +27,9 @@
 .Install all jar cross dependencies
 [source,bash]
 ----
-mvn clean compile install
+$ cd modular-pattern4hell
+$ mvn compile test
 ----
+
+.UnitTests show CloudEvent Mock Info
+image::thumbs/UnitTestsConsoleEventData.png[]

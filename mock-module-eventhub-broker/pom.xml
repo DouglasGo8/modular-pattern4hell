@@ -19,10 +19,6 @@
       <groupId>com.inhouse.mock.modules.pattern.shared.domain</groupId>
       <artifactId>shared-domain</artifactId>
     </dependency>
-    <dependency>
-      <groupId>com.inhouse.mock.modules.pattern.shared.domain</groupId>
-      <artifactId>shared-domain</artifactId>
-    </dependency>
   </dependencies>
 
 </project>

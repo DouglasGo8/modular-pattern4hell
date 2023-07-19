@@ -11,7 +11,7 @@ import java.util.List;
 public class AppTest {
 
   @Test
-  public void testPublishForsakenCartEventDetails() {
+  public void testInterceptorMockSimulation() {
 
     var method = "ForsakenCartDetails";
 
@@ -28,7 +28,7 @@ public class AppTest {
 
 
   @Test
-  public void testPublishForsakenCartEventByConfigAndReflection() {
+  public void testInterceptorMockSimulationWithConfigAndReflection() {
     var interceptor = new InterceptorHandlerCore();
     var yamlConfig = """
               interceptor-rules: event: ForsakenCart.class

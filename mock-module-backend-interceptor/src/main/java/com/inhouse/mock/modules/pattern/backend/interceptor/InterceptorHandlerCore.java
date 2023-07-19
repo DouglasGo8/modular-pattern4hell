@@ -32,14 +32,5 @@ public class InterceptorHandlerCore {
 
   }
 
-  /**
-   * Spring Core send
-   *
-   *
-   * void mYInterceptor(Request request) {
-   *   this.threadPoolExecutor.submit(()-> normalizer.execute(...));
-   * }
-   *
-   */
 
 }

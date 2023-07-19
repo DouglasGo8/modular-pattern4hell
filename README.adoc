@@ -29,9 +29,9 @@ Communication Mock Order
 |+|+ pom.xml
 |+|+ mock-module-eventhub-broker
 |+|+ pom.xml
-********************************************
-??precisa realmente do module interceptor??
-********************************************
+******************************************************
+??avaliar o uso de um novo interceptor pro Integration
+********************************************************
 |+|+ mock-module-integration-interceptor
 |+|+ pom.xml
 |+|+ mock-module-microservice
@@ -70,7 +70,7 @@ image::thumbs/UnitTestsConsoleEventData.png[]
 ----
 
 .Spring ThreadPoolTaskExecutor sample
-[source, java]
+[source,java]
 ----
 class Foo {
   @Autowired ThreadPoolTaskExecutor threadPoolExecutor;

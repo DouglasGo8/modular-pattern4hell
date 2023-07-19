@@ -9,7 +9,7 @@ public class AzureEventHubPublisher implements DomainEventPublisher<CloudEvent<?
   @Override
   public void publish(CloudEvent<?> event) {
     log.info("type {}", event.getType());
-    log.info("Details of Interceptor {}", event.getSpecializedEvent()); // ForsakenCart.class details over ToString
+    log.info("Details of InterceptorData {}", event.getSpecializedEvent()); // ForsakenCart.class details over ToString
     log.info("id of Event {}", event.getValue()); // Unique Id of Event
   }
 }

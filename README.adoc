@@ -3,7 +3,7 @@
 == Links
 
 - https://mvnrepository.com/artifact/org.apache.maven.plugins[Maven Plugins]
-
+- https://github.com/cloudevents/spec/blob/main/cloudevents/formats/json-format.md[CloudEvent Specification]
 
 [source,html]
 ----
@@ -13,7 +13,6 @@ Communication Mock Order
 3. What's EventData???
 4.
 ----
-
 
 .Project Main Structure
 ----
@@ -45,7 +44,6 @@ $ mvn compile test
 
 .UnitTests show CloudEvent Mock Info
 image::thumbs/UnitTestsConsoleEventData.png[]
-
 
 [source,json]
 ----

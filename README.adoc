@@ -28,6 +28,7 @@
 [source,bash]
 ----
 $ cd modular-pattern4hell
+$ mvn compile install
 $ mvn compile test
 ----
 

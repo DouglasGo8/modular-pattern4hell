@@ -2,11 +2,9 @@ package com.inhouse.mock.modules.pattern.backend.interceptor;
 
 import com.inhouse.mock.modules.pattern.normalizer.NormalizerCoreHandler;
 import com.inhouse.mock.modules.pattern.shared.domain.valueobject.EventData;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@AllArgsConstructor
 public class InterceptorHandlerCore {
 
   // Inject a ConfigurationClassYaml to handle over mYInterceptorByReflection method

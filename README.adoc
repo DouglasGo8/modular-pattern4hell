@@ -80,3 +80,91 @@ class Foo {
   }
 }
 ----
+
+.Apache Camel Interceptor Route Policy
+[source,java]
+----
+package ars.interceptor;
+
+@Import({MyConfig.class})
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface EnableArsInterceptor {
+}
+
+@Component
+@AllArgsConstructor
+public class MyConfig {
+
+  final CamelContext ctx;
+
+  @PostConstruct
+  public void setUp() {
+    ctx.addRoutePolicyFactory((camelContext, routeId, route) -> new RoutePolicy() {
+      @Override
+      public void onInit(Route route) {
+        System.out.println("onInit Fired");
+      }
+
+      @Override
+      public void onRemove(Route route) {
+        System.out.println("onRemove Fired");
+      }
+
+      @Override
+      public void onStart(Route route) {
+        System.out.println("onStart Fired");
+      }
+
+      @Override
+      public void onStop(Route route) {
+        System.out.println("onStop Fired");
+      }
+
+      @Override
+      public void onSuspend(Route route) {
+        System.out.println("onSuspend Fired");
+      }
+
+      @Override
+      public void onResume(Route route) {
+        System.out.println("onResume Fired");
+      }
+
+      @Override
+      public void onExchangeBegin(Route route, Exchange exchange) {
+        System.out.println("onExchangeBegin Fired");
+      }
+
+      @Override
+      public void onExchangeDone(Route route, Exchange exchange) {
+        System.out.println("onExchangeDone Fired");
+      }
+    });
+  }
+
+}
+
+@Component
+@EnableArsInterceptor
+public class GreetingResource extends RouteBuilder {
+  @Override
+  public void configure() throws Exception {
+
+    restConfiguration().component("undertow")
+            .host("localhost").port(12808)
+            .bindingMode(RestBindingMode.auto);
+
+    rest("/api/")
+      .get("/{id}")
+      .to("direct:sayHi");
+
+    from("direct:sayHi")
+      .log("ok");
+
+  }
+}
+----
+
+.Camel RoutePolicy by Annotation logging
+image::thumbs/CamelRoutePolicyLifeCycle.png[]

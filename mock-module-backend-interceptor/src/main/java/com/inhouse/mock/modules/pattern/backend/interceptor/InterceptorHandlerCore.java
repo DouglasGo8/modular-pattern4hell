@@ -12,11 +12,17 @@ public class InterceptorHandlerCore {
   public void mYInterceptor(EventData interceptorData) {
     // handle Yaml Configuration
     // based-on on decision table concept
-    var normalizer = new NormalizerCoreHandler(); // must be an interface, never create object using new
+    var normalizer = new NormalizerCoreHandler(); // must be an interface, never create an object using new
     //if (interceptorData.getFields())
     //if (interceptorData.getHeader())
     //if (interceptorData.getPayload())
     normalizer.execute(interceptorData);
+  }
+
+
+  public void mYInterceptorByReflection(String yamlConfig) {
+    //if (yamlConfig... )
+    final EventData eventData = null; // who's EventData Implementation
   }
 
 

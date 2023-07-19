@@ -26,4 +26,14 @@ public class AppTest {
     interceptor.mYInterceptor(forsakenCart);
   }
 
+
+  @Test
+  public void testPublishForsakenCartEventByConfigAndReflection() {
+    var interceptor = new InterceptorHandlerCore();
+    var yamlConfig = """
+              interceptor-rules: event: ForsakenCart.class
+            """;
+    interceptor.mYInterceptorByReflection(yamlConfig);
+  }
+
 }

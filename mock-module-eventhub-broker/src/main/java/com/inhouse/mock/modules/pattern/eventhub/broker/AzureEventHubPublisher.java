@@ -13,8 +13,8 @@ public class AzureEventHubPublisher implements ArsBrokerPublisherEventApi<Domain
     //
     var event = domainEvent.getCloudEventModel();
     //
+    log.info("{}", event.getId());
     log.info("{}", event.getData());
     log.info("{}", event.getType());
-    log.info("{}", event.getValue());
   }
 }

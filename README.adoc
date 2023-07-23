@@ -172,8 +172,6 @@ image::thumbs/CamelRoutePolicyLifeCycle.png[]
 
 [source, java]
 ----
-
-
 public class CustomArsPolicy implements RoutePolicy {
   @Override
   public void onInit(Route route) {

@@ -1,16 +1,16 @@
 package com.inhouse.mock.modules.pattern.shared.domain.valueobject;
 
 import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
-import java.io.Serializable;
-
+import java.time.ZonedDateTime;
+import java.util.UUID;
 
 @Getter
-@Setter
-@ToString
-public class EventData implements Serializable {
-  String header;
-  String payload; // only json format
+public class EventData extends CloudEvent {
+  public EventData(UUID value, String data, String type,
+                   String source, String subject, String specVersion,
+                   String dataContentType, ZonedDateTime time) {
+    //
+    super(value, data, type, source, subject, specVersion, dataContentType, time);
+  }
 }
